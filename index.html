@@ -101,6 +101,7 @@
 
         .nav-menu a:hover {
             color: var(--accent-color);
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
         }
 
         .nav-menu a::after {
@@ -109,33 +110,25 @@
             width: 0;
             height: 2px;
             bottom: -5px;
-            left: 0;
-            background: var(--accent-color);
-            transition: width 0.3s ease;
+            left: 50%;
+            background: var(--gradient-accent);
+            transition: all 0.3s ease;
         }
 
         .nav-menu a:hover::after {
             width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--light-text);
-            font-size: 1.5rem;
-            cursor: pointer;
+            left: 0;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            height: 100vh;
             background: var(--gradient-primary);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--light-text);
+            color: white;
             position: relative;
             overflow: hidden;
         }
@@ -147,316 +140,638 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a"><stop offset="0" stop-color="%23ffffff" stop-opacity=".2"/><stop offset="1" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><g opacity=".6"><circle cx="200" cy="200" r="120" fill="url(%23a)"/><circle cx="800" cy="300" r="180" fill="url(%23a)"/><circle cx="400" cy="700" r="150" fill="url(%23a)"/><circle cx="700" cy="700" r="100" fill="url(%23a)"/></g></svg>') center/cover;
+            animation: float 20s ease-in-out infinite;
         }
 
         .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-            z-index: 1;
             position: relative;
+            z-index: 2;
+            animation: fadeInUp 1.2s ease;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #fff, #4facfe, #00f2fe);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
         }
 
-        .hero h2 {
+        .hero .subtitle {
             font-size: 1.8rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
             font-weight: 300;
-            opacity: 0.9;
         }
 
-        .hero p {
+        .hero .description {
             font-size: 1.2rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
             opacity: 0.8;
-            line-height: 1.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
+        .cta-button {
             display: inline-block;
-            text-align: center;
+            padding: 15px 35px;
+            background: var(--gradient-secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
         }
 
-        .btn-primary {
-            background: var(--accent-color);
-            color: var(--light-text);
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(233, 69, 96, 0.4);
         }
 
-        .btn-primary:hover {
-            background: #d63447;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(233, 69, 96, 0.3);
-        }
-
-        .btn-secondary {
+        .cta-button.secondary {
             background: transparent;
-            color: var(--light-text);
-            border: 2px solid var(--light-text);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
 
-        .btn-secondary:hover {
-            background: var(--light-text);
-            color: var(--primary-color);
-            transform: translateY(-2px);
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-color);
         }
 
-        /* Sections */
-        .section {
-            padding: 5rem 2rem;
+        /* Floating Animation */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-20px) rotate(1deg);
+            }
+
+            66% {
+                transform: translateY(-10px) rotate(-1deg);
+            }
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
+        /* Section Styling */
+        section {
+            padding: 6rem 0;
             position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--accent-color);
-            border-radius: 2px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
         }
 
         /* About Section */
         .about {
             background: var(--light-bg);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234facfe;stop-opacity:0.1" /><stop offset="100%" style="stop-color:%2300f2fe;stop-opacity:0.05" /></linearGradient></defs><polygon points="0,0 1000,200 1000,800 0,1000" fill="url(%23grad1)"/></svg>') center/cover;
+            opacity: 0.3;
         }
 
         .about-content {
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 3rem;
+            gap: 5rem;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
         .about-image {
-            text-align: center;
+            position: relative;
         }
 
-        .about-image img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
+        /* Profile Picture with actual image */
+        .profile-pic {
+            width: 100%;
+            max-width: 400px;
+            height: 450px;
+            border-radius: 25px;
+            box-shadow: var(--card-shadow-hover);
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border: 5px solid var(--accent-color);
-            box-shadow: var(--card-shadow);
+            border-radius: 25px;
         }
 
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
+        .profile-pic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
         }
 
         .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
+            margin-bottom: 2rem;
         }
 
+        .highlight {
+            background: var(--gradient-accent);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* Skills Section */
         .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 2rem;
+            background: var(--gradient-dark);
+            color: white;
         }
 
-        .skill-tag {
-            background: var(--accent-color);
-            color: var(--light-text);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* Projects Section */
-        .projects-grid {
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
 
-        .project-card {
-            background: white;
-            border-radius: 15px;
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
             overflow: hidden;
-            box-shadow: var(--card-shadow);
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .skill-category h3 {
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .skill-category h3 i {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             transition: all 0.3s ease;
         }
 
-        .project-card:hover {
+        .skill-list li:hover {
+            padding-left: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-level {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Education Section */
+        .education {
+            background: var(--light-bg);
+            position: relative;
+        }
+
+        .education-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient-accent);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .education-item {
+            position: relative;
+            background: white;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            width: 45%;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .education-item:hover {
             transform: translateY(-10px);
             box-shadow: var(--card-shadow-hover);
         }
 
-        .project-image {
-            height: 200px;
+        .education-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .education-item:nth-child(even) {
+            left: 55%;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 25px;
+            height: 25px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
+        }
+
+        .education-item:nth-child(odd)::before {
+            right: -65px;
+        }
+
+        .education-item:nth-child(even)::before {
+            left: -65px;
+        }
+
+        .education-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .education-item h4 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* CV Download with actual file */
+        .cv-download {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 15px 35px;
             background: var(--gradient-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             color: white;
-            font-size: 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .cv-download:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(233, 69, 96, 0.4);
+        }
+
+        /* Interests Section */
+        .interests {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .interests .skill-category {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .interests .skill-category:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--light-bg);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .project-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .project-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
         }
 
         .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .project-content p {
-            color: var(--text-color);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+            padding: 2.5rem;
         }
 
         .project-links {
             display: flex;
             gap: 1rem;
+            margin-top: 1.5rem;
         }
 
-        .project-links a {
-            padding: 0.5rem 1rem;
-            background: var(--accent-color);
+        .project-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--gradient-accent);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
+            border-radius: 25px;
             transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
 
-        .project-links a:hover {
-            background: #d63447;
+        .project-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
+        }
+
+        .project-link.github {
+            background: var(--gradient-dark);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-tag {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
 
         /* Contact Section */
         .contact {
-            background: var(--gradient-dark);
-            color: var(--light-text);
+            background: var(--primary-color);
+            color: white;
         }
 
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 5rem;
         }
 
         .contact-info h3 {
-            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            font-size: 1.8rem;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            line-height: 1.8;
             margin-bottom: 2rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
         }
 
         .contact-item i {
             font-size: 1.5rem;
-            margin-right: 1rem;
+            margin-right: 1.5rem;
             color: var(--accent-color);
+            width: 30px;
         }
 
         .contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: var(--accent-color);
+            font-weight: 600;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 1rem;
-            border: none;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--text-color);
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
             font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(233, 69, 96, 0.3);
         }
 
         .form-group textarea {
+            height: 150px;
             resize: vertical;
-            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(233, 69, 96, 0.4);
         }
 
         /* Footer */
         footer {
-            background: var(--primary-color);
-            color: var(--light-text);
+            background: #0a0a0a;
+            color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 0;
         }
 
         .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
+            margin: 2rem 0;
         }
 
         .social-links a {
-            color: var(--light-text);
-            font-size: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            margin: 0 1.5rem;
             transition: all 0.3s ease;
+            display: inline-block;
         }
 
         .social-links a:hover {
             color: var(--accent-color);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            text-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive Design */
@@ -465,25 +780,12 @@
                 display: none;
             }
 
-            .mobile-menu-btn {
-                display: block;
-            }
-
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
 
-            .hero h2 {
+            .hero .subtitle {
                 font-size: 1.4rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
             }
 
             .cta-buttons {
@@ -491,25 +793,179 @@
                 align-items: center;
             }
 
-            .btn {
-                width: 100%;
-                max-width: 300px;
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
             }
-        }
 
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
+            .education-timeline::before {
+                left: 30px;
+            }
+
+            .education-item {
+                width: calc(100% - 80px);
+                left: 80px !important;
+            }
+
+            .education-item::before {
+                left: -40px !important;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
-            .about-image img {
-                width: 250px;
-                height: 250px;
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
+        }
+
+        /* Music Section */
+        .music {
+            background: var(--gradient-dark);
+            color: white;
+            text-align: center;
+        }
+
+        .playlist-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .playlist {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .song-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .song-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .song-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .play-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            background: #d63447;
+            transform: scale(1.1);
+        }
+
+        .audio-player {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        /* Certificates Section */
+        .certificates {
+            background: var(--light-bg);
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .certificate-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 250px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .certificate-content {
+            padding: 2.5rem;
+        }
+
+        .certificate-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .certificate-content p {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .certificate-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--gradient-accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .certificate-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
         }
     </style>
 </head>
@@ -518,16 +974,18 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">DK</div>
+            <div class="logo">Diana Kemunto</div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#interests">Interests</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#music">Music</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
     </nav>
 
@@ -535,131 +993,248 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Diana Kemunto</h1>
-            <h2>Data Scientist & Mathematician</h2>
-            <p>Passionate about transforming data into meaningful insights and solving complex problems through analytical thinking and innovative solutions.</p>
+            <p class="subtitle">Data Scientist | Mathematician | Problem Solver</p>
+            <p class="description">Transforming complex data into actionable insights through innovative mathematical
+                modeling and cutting-edge machine learning techniques</p>
             <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <a href="#about" class="cta-button">Discover My Journey</a>
+                <a href="#contact" class="cta-button secondary">Let's Collaborate</a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section about">
+    <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="diana_photo.jpeg" alt="Diana Kemunto">
+                    <div class="profile-pic">
+                        <img src="diana_photo.jpeg" alt="Diana Kemunto">
+                    </div>
                 </div>
                 <div class="about-text">
-                    <h3>Hello, I'm Diana!</h3>
-                    <p>I am a passionate Data Scientist and Mathematician with a strong foundation in statistical analysis, machine learning, and mathematical modeling. My journey in data science began with my love for numbers and patterns, which naturally evolved into a career focused on extracting meaningful insights from complex datasets.</p>
-                    <p>With expertise in Python, R, SQL, and various data visualization tools, I specialize in developing predictive models, conducting statistical analyses, and creating compelling data stories that drive business decisions. I believe in the power of data to transform industries and improve lives.</p>
-                    <p>When I'm not crunching numbers, you can find me exploring new datasets, contributing to open-source projects, or sharing knowledge with the data science community.</p>
-                    
-                    <div class="skills">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">R</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Statistical Analysis</span>
-                        <span class="skill-tag">Data Visualization</span>
-                        <span class="skill-tag">Tableau</span>
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">Deep Learning</span>
-                        <span class="skill-tag">NLP</span>
-                    </div>
+                    <p>Hi! I'm <span class="highlight">Diana Kemunto</span>, a passionate mathematician and data analyst
+                        with a love for creating innovative solutions to complex problems. My journey in the world of
+                        data science began with a fascination for patterns and a desire to solve real-world challenges
+                        through analytical thinking.</p>
+
+                    <p>With expertise in <span class="highlight">machine learning</span>, <span
+                            class="highlight">statistical analysis</span>, and <span class="highlight">mathematical
+                            modeling</span>, I specialize in developing solutions that bridge mathematical theory with
+                        practical applications. My work spans across various domains including financial analytics,
+                        predictive modeling, and operations research.</p>
+
+                    <p>Currently pursuing my Bachelor's degree in Mathematics and Modelling Process at Dedan Kimathi
+                        University of Technology, I've gained practical experience through freelance data analysis work,
+                        quality control roles, and volunteer teaching positions. I believe in the power of collaboration
+                        and continuous learning to push the boundaries of what's possible in data science.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Programming Languages & Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i>Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python <span class="skill-level">Advanced</span></li>
+                        <li>SQL <span class="skill-level">Intermediate</span></li>
+                        <li>LaTeX <span class="skill-level">Intermediate</span></li>
+                        <li>Excel <span class="skill-level">Expert</span></li>
+                        <li>R <span class="skill-level">Basic</span></li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i>Machine Learning</h3>
+                    <ul class="skill-list">
+                        <li>Scikit-learn <span class="skill-level">Advanced</span></li>
+                        <li>Decision Trees <span class="skill-level">Expert</span></li>
+                        <li>Random Forest <span class="skill-level">Expert</span></li>
+                        <li>Logistic Regression <span class="skill-level">Advanced</span></li>
+                        <li>Model Evaluation <span class="skill-level">Advanced</span></li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i>Data Analysis</h3>
+                    <ul class="skill-list">
+                        <li>Statistical Analysis <span class="skill-level">Advanced</span></li>
+                        <li>Data Visualization <span class="skill-level">Advanced</span></li>
+                        <li>Predictive Modeling <span class="skill-level">Advanced</span></li>
+                        <li>Matplotlib & Seaborn <span class="skill-level">Advanced</span></li>
+                        <li>Pandas <span class="skill-level">Expert</span></li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i>Skills & Expertise</h3>
+                    <ul class="skill-list">
+                        <li>Data Entry & Verification <span class="skill-level">Expert</span></li>
+                        <li>Inventory Management <span class="skill-level">Advanced</span></li>
+                        <li>Research Skills <span class="skill-level">Advanced</span></li>
+                        <li>Communication <span class="skill-level">Expert</span></li>
+                        <li>Problem Solving <span class="skill-level">Expert</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">Educational Background</h2>
+            <div class="education-timeline">
+                <div class="education-item">
+                    <h3>Bachelor of Science in Mathematics and Modelling Process</h3>
+                    <h4>Dedan Kimathi University of Technology</h4>
+                    <p>Class: Second upper. Specialized in computational mathematics and data analytics with focus on
+                        mathematical modeling and statistical analysis.</p>
+                    <p><strong>October 2021 - December 2024</strong></p>
+                </div>
+
+                <div class="education-item">
+                    <h3>Kenya Certificate of Secondary Education (K.C.S.E)</h3>
+                    <h4>Ikonge Girls P.A.G Secondary School</h4>
+                    <p>Grade: B. Completed secondary education with strong foundation in mathematics and sciences.</p>
+                    <p><strong>December 2019</strong></p>
+                </div>
+
+                <div class="education-item">
+                    <h3>Data Science Virtual Experience Programme</h3>
+                    <h4>British Airways (via Forage)</h4>
+                    <p>Gained practical experience in web scraping to extract company insights and predicted customer
+                        buying behavior using data science techniques.</p>
+                    <p><strong>Completed: August 6, 2023</strong></p>
+                </div>
+
+                <div class="education-item">
+                    <h3>Kenya Certificate of Primary Education (K.C.P.E)</h3>
+                    <h4>Tenduet Primary School</h4>
+                    <p>Marks: 300. Strong academic foundation established in primary education.</p>
+                    <p><strong>October 2015</strong></p>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="Dianakemunto_cv.pdf" class="cv-download" download>
+                    <i class="fas fa-download"></i> Download My CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section id="interests" class="interests">
+        <div class="container">
+            <h2 class="section-title">Interests</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-book"></i>Research & Learning</h3>
+                    <ul class="skill-list">
+                        <li>Reading latest ML papers</li>
+                        <li>Contributing to open source</li>
+                        <li>Attending tech conferences</li>
+                        <li>Online courses & workshops</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-music"></i>Music & Arts</h3>
+                    <ul class="skill-list">
+                        <li>Playing piano</li>
+                        <li>Jazz & classical music</li>
+                        <li>Digital art creation</li>
+                        <li>Photography</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-heartbeat"></i>Health & Wellness</h3>
+                    <ul class="skill-list">
+                        <li>Yoga & meditation</li>
+                        <li>Hiking & nature walks</li>
+                        <li>Cooking healthy meals</li>
+                        <li>Mindfulness practices</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section">
+    <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-chart-line"></i>
+                    <div class="project-header">
+                        <h3>House Price Prediction Model</h3>
+                        <p>Machine Learning Models Comparison</p>
                     </div>
                     <div class="project-content">
-                        <h3>Customer Segmentation Analysis</h3>
-                        <p>Developed a machine learning model to segment customers based on purchasing behavior, resulting in a 25% increase in marketing campaign effectiveness.</p>
+                        <p>Conducted an in-depth analysis to predict house prices using Decision Tree and Random Forest
+                            models. Evaluated performance using RMSE and R2 metrics, with Random Forest outperforming
+                            Decision Tree. Focused on hyperparameter tuning using Grid Search for optimization.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Matplotlib</span>
+                        </div>
                         <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i> View Code</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#" class="project-link">Live Demo</a>
+                            <a href="#" class="project-link github">GitHub</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-brain"></i>
+                    <div class="project-header">
+                        <h3>Fraud Detection System</h3>
+                        <p>Financial Transaction Analysis</p>
                     </div>
                     <div class="project-content">
-                        <h3>Predictive Analytics Dashboard</h3>
-                        <p>Built an interactive dashboard using Python and Streamlit to predict sales trends and provide actionable insights for business stakeholders.</p>
+                        <p>Conducted a fraud detection project to identify suspicious financial transactions using
+                            classification models. Trained and compared Logistic Regression, Decision Tree, and Random
+                            Forest models. Random Forest achieved the best results in identifying fraud cases.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Matplotlib</span>
+                        </div>
                         <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i> View Code</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#" class="project-link">Live Demo</a>
+                            <a href="#" class="project-link github">GitHub</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-database"></i>
+                    <div class="project-header">
+                        <h3>British Airways Data Analysis</h3>
+                        <p>Customer Behavior Prediction</p>
                     </div>
                     <div class="project-content">
-                        <h3>Data Pipeline Optimization</h3>
-                        <p>Designed and implemented an ETL pipeline that reduced data processing time by 60% while maintaining data quality and integrity.</p>
-                        <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i> View Code</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <p>Virtual experience project involving web scraping to extract company insights and predicting
+                            customer buying behavior using data science techniques. Gained practical experience in
+                            real-world data analysis scenarios.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Web Scraping</span>
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Machine Learning</span>
                         </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Natural Language Processing Model</h3>
-                        <p>Created a sentiment analysis model using BERT that achieved 92% accuracy in classifying customer feedback and reviews.</p>
                         <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i> View Code</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Financial Risk Assessment</h3>
-                        <p>Developed a risk assessment model using Monte Carlo simulations to evaluate investment portfolios and optimize asset allocation.</p>
-                        <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i> View Code</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-microscope"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Healthcare Data Analysis</h3>
-                        <p>Analyzed patient data to identify patterns in disease progression and treatment effectiveness, supporting clinical decision-making.</p>
-                        <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i> View Code</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#" class="project-link">Live Demo</a>
+                            <a href="#" class="project-link github">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -668,104 +1243,344 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section contact">
+    <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title">Contact Me</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Let's Connect!</h3>
-                    <p>I'm always interested in new opportunities and collaborations. Whether you have a question about my work, want to discuss a potential project, or just want to say hello, feel free to reach out!</p>
-                    
+                    <h3>Let's Work Together</h3>
+                    <p>Feel free to reach out! I'm always excited to collaborate on interesting projects, discuss new
+                        opportunities, or simply connect with fellow data science enthusiasts. Whether you have a
+                        project in mind or just want to chat about the latest in AI and machine learning, I'd love to
+                        hear from you!</p>
+
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>diana.kemunto@email.com</span>
+                        <div>
+                            <strong>Email:</strong><br>
+                            Dianakemunto09@gmail.com
+                        </div>
                     </div>
+
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>+1 (555) 123-4567</span>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            +254-748-369-649
+                        </div>
                     </div>
+
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Nairobi, Kenya</span>
+                        <div>
+                            <strong>Location:</strong><br>
+                            Nyeri, Kenya
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Available:</strong><br>
+                            Mon-Fri: 9AM-6PM PST
+                        </div>
                     </div>
                 </div>
-                
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+        <div class="container">
+            <h3>Diana Kemunto</h3>
+            <p>Data Scientist | Mathematician | Problem Solver</p>
+
+            <div class="social-links">
+                <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" title="Medium"><i class="fab fa-medium"></i></a>
+                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <p>&copy; 2024 Diana Kemunto. All rights reserved.</p>
         </div>
-        <p>&copy; 2024 Diana Kemunto. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <!-- Music Section -->
+    <section id="music" class="music">
+        <div class="container">
+            <h2 class="section-title">Music</h2>
+            <div class="playlist-container">
+                <h3>My Playlist</h3>
+                <div class="playlist">
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <strong>Je Unanifikiria</strong><br>
+                                <small>Bahati & Otile Brown</small>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="music/BAHATI_&_OTILE_BROWN_-_JE_UNANIFIKIRIA_(Official_Video)(256k).mp3"
+                                type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('.nav-menu');
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <strong>Best of Reggae Roots Mix</strong><br>
+                                <small>DJ Gabu</small>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source
+                                src="music/BEST_OF_REGGAE_ROOTS_VIDEO_MIX_2020_DJ_GABU___STRICTLY_ROOTS_MIX___RH_EXCLUSIVE(128k).m4a"
+                                type="audio/mp4">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
 
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <strong>Dreams of Brighter Days</strong><br>
+                                <small>Busy Signal & RC</small>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="music/Busy_Signal_&_RC_-_Dreams_Of_Brighter_Days_(lyric_video)_🎵(256k).mp3"
+                                type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
 
-        // Form submission
-        const contactForm = document.querySelector('.contact-form');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Add your form submission logic here
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
-        });
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <strong>Case</strong><br>
+                                <small>Busy Signal</small>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="music/Busy_Signal_-_Case_Lyrics_Video(Rising_Point_Riddim)(256k).mp3"
+                                type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
 
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(26, 26, 46, 0.98)';
-            } else {
-                nav.style.background = 'rgba(26, 26, 46, 0.95)';
-            }
-        });
-    </script>
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <strong>Conqueror</strong><br>
+                                <small>Clinton Fearon</small>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="music/CLINTON_FEARON_-_CONQUEROR(128k).mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <strong>Just Be Good To Me</strong><br>
+                                <small>Half Pint</small>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="music/Just_be_good_to_me_lyrics_by_Half_pint(128k).mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <strong>Tusa</strong><br>
+                                <small>Karol G & Nicki Minaj</small>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="music/KAROL_G,_Nicki_Minaj_-_Tusa_(Official_Video)(256k).mp3"
+                                type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <strong>Better</strong><br>
+                                <small>Khalid</small>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="music/Khalid_-_Better_(Lyrics)(256k).mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <strong>Suncity</strong><br>
+                                <small>Khalid ft. Empress Of</small>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="music/Khalid_-_Suncity_(Official_Audio)_ft._Empress_Of(256k).mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <strong>Ni Wewe</strong><br>
+                                <small>Killy x Harmonize</small>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="music/Killy_x_Harmonize_-_Ni_Wewe_(Official_Audio)(128k).mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <strong>Love Got Me</strong><br>
+                                <small>Clinton Fearon</small>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="music/LOVE_GOT_ME-CLINTON_FEARON__LYRICS_VIDEO(256k).mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <strong>Particula</strong><br>
+                                <small>Major Lazer ft. Nasty C, Ice Prince, Patoranking & Jidenna</small>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="music/Major_Lazer___Particula_Lyrics_Video_feat__Nasty_C,_Ice_Prince,_Patoranking_&_Jidenna(256k).mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <strong>Naogopa</strong><br>
+                                <small>Marioo & Harmonize</small>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="music/Marioo_&_Harmonize_-_Naogopa_(Official_Music_Video)(256k).mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <strong>Reggae Mix 2022</strong><br>
+                                <small>Various Artists - DJ Stylez</small>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="music/REGGAE_MIX_2022_Chronixx,_Beres_Hammond,_Tarrus_Riley,_Romain_Virgo,_Jah_Cure,_Jboog_-_DJ_STYLEZ(480p).mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="song-item">
+                        <div class="song-info">
+                            <i class="fas fa-music"></i>
+                            <div>
+                                <strong>I Am Not Ashamed Of The Gospel Of Jah</strong><br>
+                                <small>Shasha Marley</small>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="music/Shasha_Marley_-_I_Am_Not_Ashamed_Of_The_Gospel_Of_Jah_[DJ_NINJA'S_EDIT](128k).mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates">
+        <div class="container">
+            <h2 class="section-title">Certificates</h2>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <img src="british_airways.PNG" alt="British Airways Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>British Airways Data Science Virtual Experience</h3>
+                        <p>Completed: August 6, 2023</p>
+                        <p>Gained practical experience in web scraping to extract company insights and predicted
+                            customer buying behavior using data science techniques.</p>
+                        <a href="#" class="certificate-link">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 
-</html> 
+</html>
