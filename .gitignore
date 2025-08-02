@@ -71,4 +71,4 @@ logs
 *.temp
 
 # Large media files (temporarily excluded for faster deployment)
-# music/ 
+music/ 
