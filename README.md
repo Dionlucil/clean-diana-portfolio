@@ -1,24 +1,34 @@
-# Diana Kemunto - Portfolio Website
+#  Diana Kemunto – Portfolio Website
 
-A modern, responsive portfolio website showcasing my work as a Data Scientist and Mathematician.
+Welcome to my personal portfolio website! This project showcases who I am, what I’ve done, and what I’m passionate about bringing together my background in **Mathematics and Modelling**, **Data Science**, and **Web Development**.
 
-## 🚀 Features
+---
 
-- **Responsive Design**: Optimized for all devices and screen sizes
-- **Modern UI**: Clean, professional design with smooth animations
-- **Interactive Elements**: Smooth scrolling navigation and hover effects
-- **Contact Form**: Easy way for visitors to get in touch
-- **Project Showcase**: Highlighting key projects and skills
+##  About This Project
 
-## 🛠️ Technologies Used
+This is a clean, responsive web portfolio created to highlight:
 
-- HTML5
-- CSS3 (with CSS Grid and Flexbox)
-- JavaScript (Vanilla)
-- Font Awesome Icons
-- Google Fonts
+- My academic background and achievements  
+-  Projects in data science and machine learning  
+-  Technical skills in Python, data analysis, and research  
+-  Professional experiences and trainings  
+-  Contact information for collaboration or job opportunities  
 
-## 📁 Project Structure
+The portfolio is designed for clarity, simplicity, and professionalism.
+
+---
+
+##  Built With
+
+- **HTML5** – To structure the content  
+- **CSS3** – To style and make the site responsive  
+- **Git & GitHub** – For version control and hosting  
+
+>  Note: No JavaScript was used in this project.
+
+---
+
+##  Project Structure
 
 ```
 portfolio/
@@ -31,42 +41,35 @@ portfolio/
 └── test file/          # Test files
 ```
 
-## 🎨 Sections
+---
 
-1. **Hero Section**: Introduction and call-to-action buttons
-2. **About Section**: Personal information and skills
-3. **Projects Section**: Showcase of featured projects
-4. **Contact Section**: Contact form and information
-5. **Footer**: Social media links
+##  Repository Overview
 
-## 🚀 Deployment
+This repository contains a cleaned and organized version of my original portfolio. I improved:
 
-This website is deployed on GitHub Pages and can be accessed at:
-`https://[your-username].github.io/[repository-name]`
-
-## 📱 Responsive Design
-
-The website is fully responsive and works seamlessly on:
-- Desktop computers
-- Tablets
-- Mobile phones
-
-## 🔧 Customization
-
-To customize this portfolio for your own use:
-
-1. Replace `diana_photo.jpeg` with your own photo
-2. Update personal information in the HTML
-3. Modify the color scheme in the CSS variables
-4. Add your own projects to the projects section
-5. Update contact information and social media links
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
+- File and folder structure  
+- Code formatting and readability  
+- Page layout and responsiveness  
+- Ready-to-deploy version for GitHub Pages  
 
 ---
 
-**Diana Kemunto**  
-Data Scientist & Mathematician  
-Nairobi, Kenya 
+##  How to View
+
+To view the website locally:
+
+```bash
+git clone https://github.com/Dionlucil/clean-diana-portfolio.git
+cd clean-diana-portfolio
+# Then open index.html in your browser
+```
+
+Or visit the hosted version (if available).
+
+---
+
+##  Contact Me
+
+-  **Email**: [dianakemunto09@gmail.com](mailto:dianakemunto09@gmail.com)  
+-  **LinkedIn**: [linkedin.com/in/diana-kemunto](https://linkedin.com/in/diana-kemunto)  
+-  **GitHub**: [github.com/Dionlucil](https://github.com/Dionlucil)  
