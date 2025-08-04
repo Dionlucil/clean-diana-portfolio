@@ -67,6 +67,11 @@ cd clean-diana-portfolio
 Or visit the hosted version (if available).
 
 ---
+##  Live Demo
+
+Click the link below to view the live portfolio:
+
+👉 [https://dionlucil.github.io/clean-diana-portfolio/](https://dionlucil.github.io/clean-diana-portfolio/)
 
 ##  Contact Me
 
