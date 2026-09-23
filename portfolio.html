@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Diana Kemunto | Portfolio</title>
+
+    <meta name="description"
+          content="Portfolio of Diana Kemunto, Data Scientist and Data Analyst.">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        :root {
+            --navy: #172B4D;
+            --cream: #F7F5EF;
+            --gold: #B58A4A;
+            --white: #FFFFFF;
+            --text: #252525;
+            --muted: #6B6B6B;
+            --border: #E5E1D8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* Header */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--cream);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            min-height: 76px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            color: var(--navy);
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            gap: 27px;
+        }
+
+        nav a {
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            color: var(--navy);
+            font-size: 60px;
+            line-height: 1.05;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 12px 22px;
+            background: var(--navy);
+            color: var(--white);
+            border: 1px solid var(--navy);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .button:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .button-outline {
+            background: transparent;
+            color: var(--navy);
+        }
+
+        .hero-photo {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-photo img {
+            width: 315px;
+            height: 315px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 7px solid var(--white);
+            outline: 2px solid var(--gold);
+        }
+
+        /* Sections */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .white-section {
+            background: var(--white);
+        }
+
+        .cream-section {
+            background: var(--cream);
+        }
+
+        .label {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            color: var(--navy);
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: var(--muted);
+            max-width: 680px;
+            margin-bottom: 40px;
+        }
+
+        /* About */
+
+        .about-inner {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            align-items: center;
+            gap: 75px;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 410px;
+            margin: auto;
+            border-radius: 4px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        /* Skills */
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .skill {
+            padding: 25px;
+            border-top: 2px solid var(--gold);
+            background: var(--white);
+        }
+
+        .skill h3 {
+            color: var(--navy);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .skill p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* Projects */
+
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            padding: 30px;
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+
+        .project-number {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .project h3 {
+            color: var(--navy);
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 17px;
+        }
+
+        .tools {
+            color: var(--text);
+            font-size: 13px;
+            margin-bottom: 17px;
+        }
+
+        .project a {
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .project a:hover {
+            color: var(--navy);
+        }
+
+        /* Certificates */
+
+        .certificate-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .certificate {
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+
+        .certificate img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            padding: 15px;
+            background: #F4F3EF;
+        }
+
+        .certificate-info {
+            padding: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .certificate-info h3 {
+            color: var(--navy);
+            font-size: 18px;
+            margin-bottom: 7px;
+        }
+
+        .certificate-info p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* Interests */
+
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .interest {
+            padding: 11px 18px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            color: var(--navy);
+            font-size: 14px;
+        }
+
+        /* Contact */
+
+        .contact-section {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .contact-section .title {
+            color: var(--white);
+        }
+
+        .contact-section .description {
+            color: #D8DCE3;
+        }
+
+        .contact-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 800px;
+        }
+
+        .contact-item {
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--gold);
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+
+        .contact-item a,
+        .contact-item span {
+            color: var(--white);
+            font-size: 15px;
+        }
+
+        .contact-item a:hover {
+            color: var(--gold);
+        }
+
+        /* Footer */
+
+        footer {
+            background: var(--navy);
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding: 25px 0;
+            color: #D8DCE3;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .socials {
+            display: flex;
+            gap: 18px;
+        }
+
+        .socials a {
+            font-size: 18px;
+            color: var(--white);
+        }
+
+        .socials a:hover {
+            color: var(--gold);
+        }
+
+        footer p {
+            font-size: 13px;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 850px) {
+
+            .hero-inner,
+            .about-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero-photo {
+                order: -1;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .skills-list,
+            .project-list,
+            .certificate-list {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-list {
+                grid-template-columns: 1fr;
+            }
+
+            .about-text {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .header-inner {
+                flex-direction: column;
+                padding: 15px 0;
+                gap: 12px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .hero h1 {
+                font-size: 44px;
+            }
+
+            .title {
+                font-size: 31px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .container {
+                width: 90%;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .hero {
+                padding: 75px 0;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero-photo img {
+                width: 245px;
+                height: 245px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+
+        <div class="container header-inner">
+
+            <a href="index.html" class="brand">
+                Diana Kemunto
+            </a>
+
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#interests">Interests</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <div class="container hero-inner">
+
+            <div>
+
+                <div class="eyebrow">
+                    Data Science & Analytics
+                </div>
+
+                <h1>Diana Kemunto</h1>
+
+                <h2>
+                    Data Scientist | Data Analyst
+                </h2>
+
+                <p>
+                    I work with data to clean, analyse and understand
+                    patterns, using Python, SQL and machine learning to
+                    develop practical solutions.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#projects" class="button">
+                        View My Work
+                    </a>
+
+                    <a href="Diana_Kemunto_CV.pdf"
+                       class="button button-outline"
+                       target="_blank">
+                        Download CV
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-photo">
+
+                <img src="diana_photo.jpeg"
+                     alt="Diana Kemunto">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+
+    <section id="about" class="white-section">
+
+        <div class="container about-inner">
+
+            <div class="about-image">
+
+                <img src="diana_photo.jpeg"
+                     alt="Diana Kemunto">
+
+            </div>
+
+            <div class="about-text">
+
+                <div class="label">
+                    About Me
+                </div>
+
+                <h2 class="title">
+                    Mathematics, data and technology.
+                </h2>
+
+                <p>
+                    I am a Data Scientist and Data Analyst with a Bachelor
+                    of Science in Mathematics and Modelling Processes from
+                    Dedan Kimathi University of Technology.
+                </p>
+
+                <p>
+                    I have experience working with datasets through data
+                    preparation, analysis, validation, visualisation and
+                    machine learning projects.
+                </p>
+
+                <p>
+                    My main tools include Python, SQL, Excel and
+                    data science libraries such as Pandas, NumPy and
+                    Scikit-learn.
+                </p>
+
+                <p>
+                    I enjoy learning new technologies and working on
+                    practical problems where data can be used to provide
+                    useful insights.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Skills -->
+
+    <section id="skills" class="cream-section">
+
+        <div class="container">
+
+            <div class="label">
+                Skills
+            </div>
+
+            <h2 class="title">
+                Technical skills
+            </h2>
+
+            <p class="description">
+                Areas and tools I have worked with through professional
+                work, training and personal projects.
+            </p>
+
+            <div class="skills-list">
+
+                <div class="skill">
+                    <h3>Programming</h3>
+                    <p>
+                        Python, SQL, MySQL, R, HTML, CSS and basic
+                        JavaScript.
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>Data Analysis</h3>
+                    <p>
+                        Data cleaning, EDA, statistics, visualisation
+                        and reporting.
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>Machine Learning</h3>
+                    <p>
+                        Decision Trees, Random Forest, Logistic Regression
+                        and predictive modelling.
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>Python Libraries</h3>
+                    <p>
+                        Pandas, NumPy, Matplotlib, SciPy and
+                        Scikit-learn.
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>Deep Learning</h3>
+                    <p>
+                        TensorFlow, PyTorch, neural networks and CNNs.
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>Data Quality</h3>
+                    <p>
+                        Data validation, consistency checks and
+                        quality control.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Projects -->
+
+    <section id="projects" class="cream-section">
+
+        <div class="container">
+
+            <div class="label">
+                Projects
+            </div>
+
+            <h2 class="title">
+                Selected work
+            </h2>
+
+            <p class="description">
+                A few projects that reflect my experience with data,
+                machine learning and analytical problem solving.
+            </p>
+
+            <div class="project-list">
+
+                <div class="project">
+
+                    <div class="project-number">
+                        01
+                    </div>
+
+                    <h3>
+                        AI Job Matching Platform
+                    </h3>
+
+                    <p>
+                        A final-year project using TF-IDF and cosine
+                        similarity to match job descriptions with relevant
+                        skills and categories.
+                    </p>
+
+                    <div class="tools">
+                        Python · Django · NLP · TF-IDF
+                    </div>
+
+                    <a href="https://github.com/Dionlucil"
+                       target="_blank">
+                        View on GitHub →
+                    </a>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        02
+                    </div>
+
+                    <h3>
+                        House Price Prediction
+                    </h3>
+
+                    <p>
+                        A machine learning project for predicting house
+                        prices using housing data and comparing model
+                        performance.
+                    </p>
+
+                    <div class="tools">
+                        Python · Pandas · Scikit-learn · Random Forest
+                    </div>
+
+                    <a href="https://github.com/Dionlucil"
+                       target="_blank">
+                        View on GitHub →
+                    </a>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        03
+                    </div>
+
+                    <h3>
+                        CO2 Emissions Prediction
+                    </h3>
+
+                    <p>
+                        A prediction project using historical emissions
+                        data and machine learning models to estimate
+                        CO2 emissions.
+                    </p>
+
+                    <div class="tools">
+                        Python · Pandas · Scikit-learn · Streamlit
+                    </div>
+
+                    <a href="https://github.com/Dionlucil"
+                       target="_blank">
+                        View on GitHub →
+                    </a>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        04
+                    </div>
+
+                    <h3>
+                        IMDb Sentiment Analysis
+                    </h3>
+
+                    <p>
+                        An NLP project using an LSTM model to classify
+                        movie reviews according to sentiment.
+                    </p>
+
+                    <div class="tools">
+                        Python · TensorFlow · LSTM · NLP
+                    </div>
+
+                    <a href="https://github.com/Dionlucil"
+                       target="_blank">
+                        View on GitHub →
+                    </a>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        05
+                    </div>
+
+                    <h3>
+                        Automated Cell Segmentation
+                    </h3>
+
+                    <p>
+                        An image analysis project using Cellpose to
+                        automate cell segmentation from microscopy images.
+                    </p>
+
+                    <div class="tools">
+                        Python · Cellpose · Image Analysis
+                    </div>
+
+                    <a href="https://github.com/Dionlucil"
+                       target="_blank">
+                        View on GitHub →
+                    </a>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        06
+                    </div>
+
+                    <h3>
+                        County Revenue Analysis
+                    </h3>
+
+                    <p>
+                        A data project exploring county revenue records
+                        and identifying unusual patterns for revenue
+                        monitoring.
+                    </p>
+
+                    <div class="tools">
+                        Python · Data Analysis · Visualisation
+                    </div>
+
+                    <a href="https://github.com/Dionlucil"
+                       target="_blank">
+                        View on GitHub →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Certificates -->
+
+    <section id="certificates" class="white-section">
+
+        <div class="container">
+
+            <div class="label">
+                Certificates
+            </div>
+
+            <h2 class="title">
+                Training & Certifications
+            </h2>
+
+            <p class="description">
+                Selected courses and professional training.
+            </p>
+
+            <div class="certificate-list">
+
+
+                <div class="certificate">
+
+                    <img src="british_airways.PNG"
+                         alt="British Airways Data Science Certificate">
+
+                    <div class="certificate-info">
+
+                        <h3>
+                            British Airways Data Science Virtual Experience
+                        </h3>
+
+                        <p>
+                            Forage Data Science Virtual Experience
+                            Programme. Completed August 2023.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="certificate">
+
+                    <img src="Machine Learning cert.png"
+                         alt="Machine Learning Certificate">
+
+                    <div class="certificate-info">
+
+                        <h3>
+                            Machine Learning Programme
+                        </h3>
+
+                        <p>
+                            KodeCamp 16-week Machine Learning Programme.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="certificate">
+
+                    <img src="python programming cert.png"
+                         alt="Python Programming Certificate">
+
+                    <div class="certificate-info">
+
+                        <h3>
+                            Python Programming
+                        </h3>
+
+                        <p>
+                            Python programming and practical development
+                            training.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="certificate">
+
+                    <img src="cyber security cert.png"
+                         alt="Cyber Security Certificate">
+
+                    <div class="certificate-info">
+
+                        <h3>
+                            Cyber Security
+                        </h3>
+
+                        <p>
+                            Foundational cyber security training.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="certificate">
+
+                    <img src="AI in Software Engineering png.png"
+                         alt="AI in Software Engineering Certificate">
+
+                    <div class="certificate-info">
+
+                        <h3>
+                            AI in Software Engineering
+                        </h3>
+
+                        <p>
+                            Training focused on artificial intelligence
+                            and software engineering.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Interests -->
+
+    <section id="interests" class="cream-section">
+
+        <div class="container">
+
+            <div class="label">
+                Interests
+            </div>
+
+            <h2 class="title">
+                Outside of work
+            </h2>
+
+            <div class="interests-list">
+
+                <div class="interest">
+                    Reading
+                </div>
+
+                <div class="interest">
+                    Coding
+                </div>
+
+                <div class="interest">
+                    Data Science
+                </div>
+
+                <div class="interest">
+                    Exploring New Activities
+                </div>
+
+                <div class="interest">
+                    Swimming
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+
+    <section id="contact" class="contact-section">
+
+        <div class="container">
+
+            <div class="label">
+                Contact
+            </div>
+
+            <h2 class="title">
+                Let's connect.
+            </h2>
+
+            <p class="description">
+                For opportunities, collaborations or data-related projects,
+                you can reach me through the contacts below.
+            </p>
+
+            <div class="contact-list">
+
+                <div class="contact-item">
+
+                    <strong>Email</strong>
+
+                    <a href="mailto:Dianakemunto09@gmail.com">
+                        Dianakemunto09@gmail.com
+                    </a>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <strong>Phone</strong>
+
+                    <span>
+                        +254-748-369-649
+                    </span>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <strong>GitHub</strong>
+
+                    <a href="https://github.com/Dionlucil"
+                       target="_blank">
+                        github.com/Dionlucil
+                    </a>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <strong>LinkedIn</strong>
+
+                    <a href="https://linkedin.com/in/dianakemunto09"
+                       target="_blank">
+                        linkedin.com/in/dianakemunto09
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="container footer-inner">
+
+            <p>
+                © 2026 Diana Kemunto
+            </p>
+
+            <div class="socials">
+
+                <a href="https://github.com/Dionlucil"
+                   target="_blank"
+                   aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="https://linkedin.com/in/dianakemunto09"
+                   target="_blank"
+                   aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
